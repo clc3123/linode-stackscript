@@ -13,9 +13,9 @@ linode stackscript for bootstrapping
     -   hostname
     -   fqdn
     -   time zone
+    -   ssh port
     -   deploy user name
     -   deploy user password
     -   deploy user pub key
     -   rvm version
     -   ruby version
-    
