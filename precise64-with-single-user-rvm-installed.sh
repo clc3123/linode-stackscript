@@ -61,6 +61,20 @@ echo $USER_PUB_KEY > $USER_SSH_DIR/authorized_keys
 chmod 0600 $USER_SSH_DIR/authorized_keys
 chown -R $USER_NAME:$USER_NAME $USER_SSH_DIR
  
+cat <<'EOF' > /home/$USER_NAME/add_app_runner.sh 
+#!/bin/bash
+
+if [[ `id -u` -eq 0 && "$#" -eq 1 ]]; then
+  APP_RUNNER="$1"
+else
+  echo "Usage: $ sudo $0 app_runner_name" >&2
+  exit 1
+fi
+useradd -U -d /home/$APP_RUNNER -m -s /bin/bash $APP_RUNNER
+EOF
+chmod 0700 /home/$USER_NAME/add_app_runner.sh
+chown $USER_NAME:$USER_NAME /home/$USER_NAME/add_app_runner.sh
+
 sed -i "s/^Port 22$/Port $USER_SSH_PORT/" /etc/ssh/sshd_config
 sed -i 's/^LoginGraceTime 120$/LoginGraceTime 30/' /etc/ssh/sshd_config
 sed -i 's/^PermitRootLogin yes$/PermitRootLogin no/' /etc/ssh/sshd_config
