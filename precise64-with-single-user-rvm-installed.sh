@@ -10,7 +10,7 @@
 # TIME_ZONE="Asia/Shanghai"
 
 # <udf name="user_ssh_port" label="Default User SSH Port" default="22" />
-# SSH_USER_PORT=22
+# USER_SSH_PORT=22
 # <udf name="user_name" label="Default User Name" default="username" />
 # USER_NAME=username
 # <udf name="user_password" label="Default User Password" default="username" />
