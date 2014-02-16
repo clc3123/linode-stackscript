@@ -4,7 +4,7 @@ linode-stackscript
 linode stackscript for bootstrapping
 
 支持：
-+   precise64-with-single-user-rvm-installed
++   precise64-with-multi-user-rvm-installed
 
     支持ubuntu 12.04 amd64镜像
 
